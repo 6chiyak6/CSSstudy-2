@@ -1,0 +1,215 @@
+@import "_variables";
+@import "_titles";
+@import url('http://fonts.cdnfonts.com/css/montserrat');
+@import url('https://fonts.google.com/specimen/Caladea');
+* {
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  @extend %miniTitle;
+}
+ul{
+  list-style-type: none;
+}
+body {
+  font-family: 'Caladea';
+  padding-top: 70px;
+  
+  & > *:not(.footer){
+    padding:  0px 140px;
+  }
+}
+header {
+  z-index: 1;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0px $sideSpace;
+  background-color: white;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'montserrat';
+    font-weight: 500;
+    ul{
+      display: flex;
+      text-transform: uppercase;
+      font-size: 12px;
+      padding-left: 0;
+      &:first-child{
+        li{
+          margin-right: 60px;
+          }
+      }
+    }
+  }
+
+}
+.hero{
+  height: 100vh;
+  margin: 0px $sideSpace;
+  padding: 0;
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+  url(https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 80px;
+  h4{
+    @extend %miniTitle;
+    margin-bottom: 30px;
+  }
+  h3{
+    font-size: 48px;
+    width: 40%;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  a {
+    width: 10%;
+    background-color: white;
+    padding: 20px 0px;
+    text-align: center;
+    color: black;
+    @extend %miniTitle;
+    font-size: 12px;
+    transition: all .3s linear, background 0.3s linear;
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+}
+.under-hero{
+  height: 80vh;
+  width: 100%;
+  margin-bottom: 80px;
+  display: flex;
+  .under_hero_content{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $bg;
+    .wrapper{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h4{
+        @extend %miniTitle;
+        margin-bottom: 30px;
+      }
+      h3{
+        font-size: 36px;
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      a{
+        border: 1px solid black;
+        padding: 20px;
+      }
+    }
+  }
+  img,
+  div{
+    width: 50%;
+  }
+}
+
+.blog{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 60vh);
+  margin-bottom: 80px;
+  .blog_post{
+    background-color: $bg;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    &:nth-child(even){
+      img{
+        order: 1;
+      }
+    }
+    
+  }
+  img{
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+  }
+  
+  .post_content{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .post_date{
+      @extend %miniTitle;
+      margin-bottom: 30px;
+    }
+    h4{
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+  }
+}
+.gallery{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(2, 410px);
+  
+  .gallery_poster{
+    height: 100%;
+    cursor: pointer;
+    img{
+      max-width: 100%;
+      height: 100%;
+    }
+    &:hover{
+      opacity: 0.5;
+    }
+  }
+}
+
+.footer{
+  margin-top: 100px;
+  background-color: $bg ;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  padding: 65px 0px;
+  .footer_column{
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    @extend %miniTitle;
+    .column_title{
+      margin-bottom: 50px;
+      opacity: 0.5;
+    }
+    ul{
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    &:nth-child(2){
+      border-right: 1px solid black;
+      border-left: 1px solid black;
+    }
+  }
+  
+}
